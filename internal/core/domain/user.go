@@ -13,8 +13,13 @@ type User struct {
 	CreatedAt time.Time `json:"created_at" bson:"created_at"`                 // timestamp
 }
 
+type EditUser struct {
+	Name  string `json:"name" bson:"name" `                                       // string
+	Email string `json:"email,omitempty" bson:"email" validate:"omitempty,email"` // unique
+}
+
 func (u *User) ValidateEmailAndName() error {
-	if u.Email == "" || u.Name == "" {
+	if u.Email == "" && u.Name == "" {
 		return errors.New("name and email cannot be empty")
 	}
 	return nil

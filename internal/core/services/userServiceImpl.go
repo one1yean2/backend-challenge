@@ -73,6 +73,11 @@ func (s *UserServiceImpl) UpdateUser(ctx context.Context, id string, user domain
 		return err
 	}
 
+	_, err := s.UserRepository.GetUserByID(ctx, id)
+	if err != nil {
+		return err
+	}
+
 	if user.Email != "" {
 		existUser, _ := s.UserRepository.GetUserByEmail(ctx, user.Email)
 		if existUser != nil && existUser.ID != id {
@@ -88,6 +93,11 @@ func (s *UserServiceImpl) UpdateUser(ctx context.Context, id string, user domain
 }
 
 func (s *UserServiceImpl) DeleteUser(ctx context.Context, id string) error {
+	_, err := s.UserRepository.GetUserByID(ctx, id)
+	if err != nil {
+		return err
+	}
+
 	return s.UserRepository.DeleteUser(ctx, id)
 }
 func (s *UserServiceImpl) LogTotalUser(ctx context.Context) {
