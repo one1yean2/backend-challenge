@@ -72,12 +72,13 @@ func (u *HttpUserHandler) GetAllUsers(c echo.Context) error {
 			echo.Map{"error": err.Error()},
 		)
 	}
+
 	return c.JSON(http.StatusOK, users)
 }
 
 func (u *HttpUserHandler) UpdateUser(c echo.Context) error {
 	id := c.Param("id")
-	var user domain.User
+	var user domain.EditUser
 	if err := c.Bind(&user); err != nil {
 		return c.JSON(
 			echo.ErrBadRequest.Code,
@@ -85,7 +86,14 @@ func (u *HttpUserHandler) UpdateUser(c echo.Context) error {
 		)
 	}
 
-	if err := u.service.UpdateUser(context.Background(), id, user); err != nil {
+	if err := c.Validate(user); err != nil {
+		return c.JSON(
+			http.StatusBadRequest,
+			echo.Map{"error": err.Error()},
+		)
+	}
+
+	if err := u.service.UpdateUser(context.Background(), id, domain.User{Email: user.Email, Name: user.Name}); err != nil {
 		return c.JSON(
 			echo.ErrInternalServerError.Code,
 			echo.Map{"error": err.Error()},

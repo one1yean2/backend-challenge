@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "52a4e95a-5592-4eb8-a457-434878fa69ad",
+		"name": "be-chall-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26040835"
+	},
+	"item": [
+		{
+			"name": "register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@gmail.com\",\r\n  \"password\": \"1234abc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userByID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0N2NlYzVhLWZhZTUtNDc2ZC1iYzc0LWNjNDEyZmQ5YmM2NyIsIm5hbWUiOiJXYW5udWVuZyIsImVtYWlsIjoib25lMUBnbWFpbC5jb20iLCJleHAiOjE3NDgyODU3NTEsImlhdCI6MTc0ODI4MjE1MX0.xKyHahQMM6GK0bT9dUQcsSUAUAiBsxWYEhC_97c4DE0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/283061bd-dfd8-4aa7-9420-37e609abaea3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"283061bd-dfd8-4aa7-9420-37e609abaea3"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "283061bd-dfd8-4aa7-9420-37e609abaea3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0N2NlYzVhLWZhZTUtNDc2ZC1iYzc0LWNjNDEyZmQ5YmM2NyIsIm5hbWUiOiJXYW5udWVuZyIsImVtYWlsIjoib25lMUBnbWFpbC5jb20iLCJleHAiOjE3NDgyODU3NTEsImlhdCI6MTc0ODI4MjE1MX0.xKyHahQMM6GK0bT9dUQcsSUAUAiBsxWYEhC_97c4DE0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userName&Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3YmZmMzdkLTAxYTktNDQ4OC04MDZmLTYwZTlmNGU3NDQ5NCIsIm5hbWUiOiJvbmUxIiwiZW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJleHAiOjE3NDg4OTIwNTgsImlhdCI6MTc0ODg4ODQ1OH0.ezUEuinAIqIxBlVK8qfjFlpgbIukzQhJJU8hRQEi-78",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/a7bff37d-01a9-4488-806f-60e9f4e74494",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"a7bff37d-01a9-4488-806f-60e9f4e74494"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzMzMwNzBiLTk5ZDItNDVkZi1hNGFjLTg5ODZmMzU3YTU4OCIsIm5hbWUiOiJXYW5udWVuZyIsImVtYWlsIjoib25lMUBnbWFpbC5jb20iLCJleHAiOjE3NDgyODQ5MzMsImlhdCI6MTc0ODI4MTMzM30.AJ5aE5NbZGtK-uuKQly8YyLoVyjySLoCUb5Y8fKo-Ug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" :\"test\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/d8f268f0-7e27-4286-ac1e-9a2463c912e5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"d8f268f0-7e27-4286-ac1e-9a2463c912e5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
