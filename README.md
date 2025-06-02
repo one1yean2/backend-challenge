@@ -343,16 +343,3 @@ for deleting user from database
   "error": "mongo: no documents in result"
 }
 ```
-
-## Submission Guidelines
-
-- Submit a GitHub repo or zip file.
-- Include a `README.md` with:
-  - Project setup and run instructions
-  - JWT token usage guide
-  - Sample API requests/responses
-  - Any assumptions or decisions made
-
----
-
-## Evaluation Criteria
