@@ -6,11 +6,11 @@ import (
 )
 
 type User struct {
-	ID        string    `json:"id" bson:"id,omitempty"`       // auto-generated
-	Name      string    `json:"name" omitempty bson:"name"`   // string
-	Email     string    `json:"email" omitempty bson:"email"` // unique
-	Password  string    `json:"password" bson:"password"`     // hashed
-	CreatedAt time.Time `json:"created_at" bson:"created_at"` // timestamp
+	ID        string    `json:"id,omitempty" bson:"id" `                      // auto-generated
+	Name      string    `json:"name" bson:"name" validate:"required"`         // string
+	Email     string    `json:"email" bson:"email" validate:"required,email"` // unique
+	Password  string    `json:"password" bson:"password" validate:"required"` // hashed
+	CreatedAt time.Time `json:"created_at" bson:"created_at"`                 // timestamp
 }
 
 func (u *User) ValidateEmailAndName() error {

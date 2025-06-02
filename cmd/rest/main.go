@@ -13,9 +13,9 @@ import (
 
 func main() {
 	app := handlers.EchoMiddleware()
+	app.Validator = handlers.NewRequestValidator()
 	config := config.New()
 	ctx := context.Background()
-
 	userDBClient, err := mongo.New(ctx, config.UserDB)
 	if err != nil {
 		log.Printf("Error initializing MongoDB connection: %v\n", err)

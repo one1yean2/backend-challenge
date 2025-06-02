@@ -30,6 +30,14 @@ func (u *HttpUserHandler) Register(c echo.Context) error {
 			echo.Map{"error": err.Error()},
 		)
 	}
+
+	if err := c.Validate(user); err != nil {
+		return c.JSON(
+			http.StatusBadRequest,
+			echo.Map{"error": err.Error()},
+		)
+	}
+
 	jwt, err := u.service.Register(context.Background(), user, *u.config)
 	if err != nil {
 		return c.JSON(
